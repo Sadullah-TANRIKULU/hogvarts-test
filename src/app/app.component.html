@@ -2,24 +2,41 @@
     <h1>
         Welcome to {{title}}!
     </h1>
-    <div *ngFor="let item of questions" 
-    style="margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem;">
+    <div *ngFor="let item of questions" style="margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem;">
         <p>{{item.q}}</p>
-        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+        <form style="display: flex; flex-direction: column; align-items: flex-start;" 
+              #optionsForm="ngForm"
+              (ngSubmit)="onSubmit(optionsForm)">
             <p style="padding-left: 5rem;">
-                <input type="radio" id="a1" (click)="onClick(true)" ><label for="a1">{{item.a1}}</label>
+                <input style="margin-right: 1rem;" type="radio" id="a1" value="a1" name="option" ngModel>
+                <label for="a1">{{item.a1}}</label>
             </p>
             <p style="padding-left: 5rem;">
-                <input type="radio" id="a2" (click)="onClick(true)" ><label for="a2">{{item.a2}}</label>
+                <input style="margin-right: 1rem;" type="radio" id="a2" value="a2" name="option" ngModel>
+                <label for="a2">{{item.a2}}</label>
             </p>
             <p style="padding-left: 5rem;">
-                <input type="radio" id="a3" (click)="onClick(true)" ><label for="a3">{{item.a3}}</label>
+                <input style="margin-right: 1rem;" type="radio" id="a3" value="a3" name="option" ngModel>
+                <label for="a3">{{item.a3}}</label>
             </p>
             <p style="padding-left: 5rem;">
-                <input type="radio" id="a4" (click)="onClick(true)" ><label for="a4">{{item.a4}}</label>
+                <input style="margin-right: 1rem;" type="radio" id="a4" value="a4" name="option" ngModel>
+                <label for="a4">{{item.a4}}</label>
             </p>
-        </div>
+            <button type="submit" 
+                    style="align-self: center;" >
+                    Check
+            </button>
+    <!-- <pre>Value : {{optionsForm.value | json }} </pre>
+    <pre>Valid : {{optionsForm.valid}} </pre>
+    <pre>Touched : {{optionsForm.touched  }} </pre>
+    <pre>Submitted : {{optionsForm.submitted  }} </pre> -->
+        </form>
     </div>
+    <button (click)="onClick()"  
+            style="margin-top: .5rem;" >
+            Which Hogwarts house do I belong to?
+    </button>
 </div>
-<span style="position: fixed; bottom: 3px; right: 3px; display: block;">Powered by <img width="50" alt="Angular Logo"
+<span style="position: fixed; bottom: 3px; right: 3px; display: block; z-index: -1;">Powered by <img width="50" alt="Angular Logo"
         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="></span>

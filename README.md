@@ -1,4 +1,6 @@
-# HogvartsTest
+# HogwartsTest
+
+Next time I'll try to implement pagination!!!
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
 
